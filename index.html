@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Darul-Shifa — House of Healing</title>
+  <meta name="description" content="Darul-Shifa offers traditional Hijama cupping therapy in Melbourne, blending Prophetic medicine, clinical hygiene, and personalised care.">
+  <meta name="theme-color" content="#0C1E14">
+  <meta property="og:title" content="Darul-Shifa — House of Healing">
+  <meta property="og:description" content="Traditional Hijama cupping therapy in Melbourne, rooted in Prophetic medicine and delivered with professional care.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_AU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Darul-Shifa — House of Healing">
+  <meta name="twitter:description" content="Traditional Hijama cupping therapy in Melbourne, delivered with professional care and Islamic integrity.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
@@ -23,6 +32,44 @@
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Crimson Pro', Georgia, serif;
+      color: var(--text);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      z-index: 2000;
+      padding: 0.8rem 1.1rem;
+      background: var(--gold);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--gold-light);
+      outline-offset: 3px;
+    }
+
+    main section {
+      scroll-margin-top: 6.5rem;
+    }
 
     body {
       font-family: 'Crimson Pro', Georgia, serif;
@@ -110,6 +157,39 @@
       transition: color 0.3s;
     }
     .nav-links a:hover { color: var(--gold-light); }
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 2.8rem;
+      height: 2.8rem;
+      border: 1px solid rgba(191,155,69,0.35);
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+    }
+    .menu-toggle svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+    }
+    .menu-panel {
+      display: none;
+    }
+    .nav-links a {
+      font-family: 'Crimson Pro', serif;
+      font-size: 0.78rem;
+      color: rgba(245,237,216,0.75);
+      text-decoration: none;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 300;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
 
     /* ─── HERO ─── */
     #hero {
@@ -164,6 +244,22 @@
       z-index: 2;
       max-width: 820px;
       padding: 0 2rem;
+    }
+    .hero-badges {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+    .hero-badges span {
+      border: 1px solid rgba(191,155,69,0.24);
+      color: rgba(245,237,216,0.72);
+      padding: 0.55rem 0.9rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: rgba(245,237,216,0.03);
     }
 
     .hero-eyebrow {
@@ -557,6 +653,36 @@
       align-items: start;
       position: relative; z-index: 1;
     }
+    .booking-card {
+      padding: 2rem;
+      border: 1px solid rgba(191,155,69,0.16);
+      background: rgba(245,237,216,0.03);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+    }
+    .booking-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.9rem;
+      margin-bottom: 1.4rem;
+    }
+    .booking-meta div {
+      border: 1px solid rgba(191,155,69,0.14);
+      padding: 0.9rem 1rem;
+      background: rgba(12,30,20,0.36);
+    }
+    .booking-meta span {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(191,155,69,0.75);
+      margin-bottom: 0.45rem;
+    }
+    .booking-meta strong {
+      color: var(--parchment);
+      font-size: 0.98rem;
+      font-weight: 400;
+    }
     .contact-left p {
       margin-top: 0;
       font-size: 1.1rem;
@@ -602,6 +728,10 @@
       font-size: 1.05rem;
       color: rgba(245,237,216,0.78);
       font-weight: 300;
+      text-decoration: none;
+    }
+    .cinfo-val:hover {
+      color: var(--gold-light);
     }
 
     /* Form */
@@ -653,6 +783,38 @@
     .fgroup textarea { height: 110px; resize: vertical; }
     .fgroup input::placeholder,
     .fgroup textarea::placeholder { color: rgba(245,237,216,0.25); }
+    .form-note {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: rgba(245,237,216,0.56);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    .contact-trust {
+      margin-top: 2.4rem;
+      display: grid;
+      gap: 0.9rem;
+    }
+    .contact-trust li {
+      list-style: none;
+      color: rgba(245,237,216,0.72);
+      font-size: 0.98rem;
+      line-height: 1.8;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+    .contact-trust li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+    .form-status {
+      min-height: 1.5rem;
+      margin-top: 0.4rem;
+      font-size: 0.95rem;
+      color: var(--gold-pale);
+    }
 
     .submit-btn {
       align-self: flex-start;
@@ -731,25 +893,67 @@
       .val-item:nth-child(2) { border-right: none; }
       .val-item:nth-child(3) { border-top: 1px solid rgba(191,155,69,0.18); }
       .contact-wrap { grid-template-columns: 1fr; gap: 4rem; }
+      .booking-meta { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 1.4rem; text-align: center; }
     }
     @media (max-width: 680px) {
       section { padding: 5.5rem 1.8rem; }
       nav { padding: 1.2rem 1.8rem; }
       nav.scrolled { padding: 0.9rem 1.8rem; }
-      .nav-links { display: none; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links {
+        display: none;
+      }
+      .menu-panel {
+        position: fixed;
+        top: calc(100% + 0.8rem);
+        left: 1.8rem;
+        right: 1.8rem;
+        background: rgba(12, 30, 20, 0.98);
+        border: 1px solid rgba(191,155,69,0.22);
+        padding: 1.2rem;
+        list-style: none;
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      nav.menu-open .menu-panel {
+        display: flex;
+      }
+      .menu-panel a {
+        color: var(--parchment);
+        text-decoration: none;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-size: 0.78rem;
+      }
       .hero-ornament { width: 260px; height: 260px; }
       .svc-grid { grid-template-columns: 1fr; }
-      .val-grid { grid-template-columns: 1fr 1fr; }
+      .val-grid { grid-template-columns: 1fr; }
+      .val-item { border-right: none; }
+      .val-item + .val-item { border-top: 1px solid rgba(191,155,69,0.18); }
       .frow { grid-template-columns: 1fr; }
       footer { padding: 2rem 1.8rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      .fade-up {
+        opacity: 1;
+        transform: none;
+      }
     }
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
   <!-- ═══ NAV ═══ -->
-  <nav id="navbar">
+  <nav id="navbar" aria-label="Primary">
     <a href="#hero" class="nav-logo">
       Darul-Shifa
       <span>House of Healing</span>
@@ -760,8 +964,18 @@
       <li><a href="#values">Why Us</a></li>
       <li><a href="#contact">Book Now</a></li>
     </ul>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <ul class="menu-panel" id="mobileMenu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#values">Why Us</a></li>
+      <li><a href="#contact">Book Now</a></li>
+    </ul>
   </nav>
 
+  <main id="main-content">
   <!-- ═══ HERO ═══ -->
   <section id="hero">
     <div class="hero-geo"></div>
@@ -781,10 +995,14 @@
       <h1 class="hero-title">Darul-<em>Shifa</em></h1>
       <div class="hero-rule"></div>
       <p class="hero-tagline">
-        Traditional Hijama Cupping Therapy<br>
-        Rooted in ancient wisdom &mdash; refined for modern healing.
+        Traditional Hijama cupping therapy in Melbourne, delivered with clinical care, clear hygiene standards, and respect for the Prophetic tradition.
       </p>
       <a href="#contact" class="hero-cta">Book a Session</a>
+      <div class="hero-badges" aria-label="Trust highlights">
+        <span>Melbourne Based</span>
+        <span>Clinical Hygiene Standards</span>
+        <span>Male and Female Practitioner Options</span>
+      </div>
     </div>
 
     <a href="#about" class="scroll-hint">
@@ -800,14 +1018,14 @@
       <h2 class="s-title">Healing through<br>the <em style="font-style:italic;color:var(--gold)">Sunnah</em></h2>
       <div class="gold-rule"></div>
       <p class="about-body">
-        <strong>Darul-Shifa</strong> — House of Healing — was founded on a simple yet profound belief: that the prophetic traditions of medicine deserve a respected place in modern life. Hijama, or wet cupping therapy, has been practiced for over 5,000 years and was highly commended by the Prophet Muhammad ﷺ as a means of maintaining health and treating illness.
+        <strong>Darul-Shifa</strong> exists to restore dignity, clarity, and trust to Hijama care. We offer a calm clinical environment where Prophetic medicine is practiced seriously, not theatrically, with careful attention to hygiene, modesty, and the individual needs of each client.
       </p>
       <blockquote class="about-quote">
         "The best of your remedies is cupping."
         <cite>— Sahih al-Bukhari</cite>
       </blockquote>
       <p class="about-body">
-        Our practitioners combine traditional knowledge with modern hygiene standards and professional training — ensuring every session is safe, effective, and conducted with the utmost care and respect.
+        Whether you are seeking relief from tension, support for recovery, or a more intentional wellness routine, each session is guided by consultation, appropriate treatment selection, and professional standards that make the process feel safe and well-considered.
       </p>
     </div>
 
@@ -832,7 +1050,7 @@
       <p class="s-tag">&#x2727;&ensp;What We Offer</p>
       <h2 class="s-title">Our<br>Services</h2>
       <div class="gold-rule"></div>
-      <p>Every treatment is tailored to your individual needs, performed with traditional precision and contemporary care.</p>
+      <p>From first-time consultations to targeted recovery sessions, every treatment is tailored to your needs and carried out with traditional integrity and contemporary clinical care.</p>
     </div>
 
     <div class="svc-grid">
@@ -948,7 +1166,7 @@
         <p class="s-tag">&#x2727;&ensp;Get in Touch</p>
         <h2 class="s-title">Book Your<br><em style="font-style:italic;color:var(--gold-light)">Session</em></h2>
         <div class="gold-rule"></div>
-        <p>Take the first step toward healing. Fill in the form and we will be in touch to confirm your appointment.</p>
+        <p>Share a few details and we will contact you to confirm suitability, answer questions, and arrange the right session for your needs.</p>
 
         <div class="cinfo">
           <div class="cinfo-icon">
@@ -956,7 +1174,7 @@
           </div>
           <div>
             <span class="cinfo-label">Location</span>
-            <span class="cinfo-val">Melbourne, Victoria, Australia</span>
+            <a class="cinfo-val" href="https://maps.google.com/?q=Melbourne%2C%20Victoria%2C%20Australia" target="_blank" rel="noopener noreferrer">Melbourne, Victoria, Australia</a>
           </div>
         </div>
 
@@ -966,7 +1184,7 @@
           </div>
           <div>
             <span class="cinfo-label">Phone</span>
-            <span class="cinfo-val">+61 4XX XXX XXX</span>
+            <a class="cinfo-val" href="tel:+61400000000">+61 4XX XXX XXX</a>
           </div>
         </div>
 
@@ -976,57 +1194,80 @@
           </div>
           <div>
             <span class="cinfo-label">Email</span>
-            <span class="cinfo-val">info@darulshifa.com.au</span>
+            <a class="cinfo-val" href="mailto:info@darulshifa.com.au">info@darulshifa.com.au</a>
           </div>
         </div>
+
+        <ul class="contact-trust" aria-label="Trust signals">
+          <li>Single-use equipment and clear hygiene protocols for every appointment.</li>
+          <li>Respectful care with practitioner arrangements suited to comfort and modesty needs.</li>
+          <li>Consultation-first approach so treatment is matched to the client, not rushed.</li>
+        </ul>
       </div>
 
-      <div class="fade-up">
-        <form class="cform" onsubmit="handleSubmit(event)">
+      <div class="fade-up booking-card">
+        <div class="booking-meta" aria-label="Booking expectations">
+          <div>
+            <span>Response Time</span>
+            <strong>Usually within 24 hours</strong>
+          </div>
+          <div>
+            <span>Session Style</span>
+            <strong>Consultation-led</strong>
+          </div>
+          <div>
+            <span>Booking Path</span>
+            <strong>Enquiry then confirmation</strong>
+          </div>
+        </div>
+        <form class="cform" id="bookingForm" action="https://formspree.io/f/your-form-id" method="POST">
           <div class="frow">
             <div class="fgroup">
-              <label>First Name</label>
-              <input type="text" placeholder="Your first name" required>
+              <label for="firstName">First Name</label>
+              <input id="firstName" name="firstName" type="text" placeholder="Your first name" autocomplete="given-name" required>
             </div>
             <div class="fgroup">
-              <label>Last Name</label>
-              <input type="text" placeholder="Your last name">
+              <label for="lastName">Last Name</label>
+              <input id="lastName" name="lastName" type="text" placeholder="Your last name" autocomplete="family-name">
             </div>
           </div>
           <div class="fgroup">
-            <label>Phone Number</label>
-            <input type="tel" placeholder="+61 4XX XXX XXX" required>
+            <label for="phoneNumber">Phone Number</label>
+            <input id="phoneNumber" name="phone" type="tel" placeholder="+61 4XX XXX XXX" autocomplete="tel" required>
           </div>
           <div class="fgroup">
-            <label>Email Address</label>
-            <input type="email" placeholder="your@email.com">
+            <label for="emailAddress">Email Address</label>
+            <input id="emailAddress" name="email" type="email" placeholder="your@email.com" autocomplete="email" required>
           </div>
           <div class="fgroup">
-            <label>Service Required</label>
-            <select required>
+            <label for="serviceRequired">Service Required</label>
+            <select id="serviceRequired" name="service" required>
               <option value="" disabled selected>Select a service&hellip;</option>
-              <option>Wet Hijama</option>
-              <option>Dry Cupping</option>
-              <option>Massage Cupping</option>
-              <option>Sports Recovery Cupping</option>
-              <option>Facial Cupping</option>
-              <option>Initial Consultation</option>
+              <option value="Wet Hijama">Wet Hijama</option>
+              <option value="Dry Cupping">Dry Cupping</option>
+              <option value="Massage Cupping">Massage Cupping</option>
+              <option value="Sports Recovery Cupping">Sports Recovery Cupping</option>
+              <option value="Facial Cupping">Facial Cupping</option>
+              <option value="Initial Consultation">Initial Consultation</option>
             </select>
           </div>
           <div class="fgroup">
-            <label>Message (optional)</label>
-            <textarea placeholder="Any health conditions or questions we should know about&hellip;"></textarea>
+            <label for="clientMessage">Message (optional)</label>
+            <textarea id="clientMessage" name="message" placeholder="Any health conditions or questions we should know about&hellip;"></textarea>
           </div>
+          <p class="form-note">This form is wired for Formspree. Replace <strong>your-form-id</strong> with your real endpoint before launch so submissions reach your inbox.</p>
           <button type="submit" class="submit-btn" id="submitBtn">Request Appointment</button>
+          <p class="form-status" id="formStatus" aria-live="polite"></p>
         </form>
       </div>
     </div>
   </section>
+  </main>
 
   <!-- ═══ FOOTER ═══ -->
   <footer>
     <div class="footer-logo">Darul-Shifa</div>
-    <p class="footer-copy">&copy; 2025 Darul-Shifa. All rights reserved.</p>
+    <p class="footer-copy">&copy; 2026 Darul-Shifa. All rights reserved.</p>
     <ul class="footer-nav">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
@@ -1037,30 +1278,60 @@
   <script>
     // Navbar solid on scroll
     const nav = document.getElementById('navbar');
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const bookingForm = document.getElementById('bookingForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formStatus = document.getElementById('formStatus');
+
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
 
-    // Fade-up on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
+    menuToggle?.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('menu-open');
+      document.body.classList.toggle('menu-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+
+    mobileMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('menu-open');
+        document.body.classList.remove('menu-open');
+        menuToggle?.setAttribute('aria-expanded', 'false');
+        menuToggle?.setAttribute('aria-label', 'Open menu');
       });
-    }, { threshold: 0.08 });
+    });
 
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    // Fade-up on scroll
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.08 });
 
-    // Form submit
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = document.getElementById('submitBtn');
-      btn.textContent = 'Request Sent \u2713';
-      btn.style.cssText += 'border-color:#40916C;color:#40916C;cursor:default;';
-      btn.disabled = true;
+      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    } else {
+      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
     }
+
+    bookingForm?.addEventListener('submit', (event) => {
+      const action = bookingForm.getAttribute('action') || '';
+      if (action.includes('your-form-id')) {
+        event.preventDefault();
+        formStatus.textContent = 'Add your Formspree endpoint before launching this form.';
+        submitBtn.textContent = 'Setup Required';
+        submitBtn.disabled = true;
+        submitBtn.style.cssText += 'border-color:#BF9B45;color:#BF9B45;cursor:not-allowed;';
+      } else {
+        formStatus.textContent = 'Sending your appointment request...';
+      }
+    });
   </script>
 </body>
 </html>
