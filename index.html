@@ -20,7 +20,7 @@
       /* Supporting (derived) */
       --forest-ink: #142A1E;  /* slightly deeper forest for body text on ivory */
       --gold-soft:  #D9BE83;  /* hover / light gold */
-      --muted:      #5A6B62;  /* low-emphasis body text on ivory */
+      --muted:      #4A5B52;  /* low-emphasis body text on ivory — 4.7:1 on ivory */
       --line:       rgba(28,56,41,0.12);       /* hairlines on ivory */
       --line-gold:  rgba(200,164,90,0.35);
 
@@ -45,6 +45,24 @@
 
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
+
+    /* Skip-to-main for keyboard users */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: var(--gold);
+      color: var(--forest);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      z-index: 200;
+      transition: top 0.2s;
+    }
+    .skip-link:focus {
+      top: 0.8rem;
+    }
 
     /* ── NAV ── */
     nav {
@@ -259,6 +277,10 @@
     }
     .hero-cta:hover { color: var(--ivory); }
     .hero-cta:hover::before { transform: scaleX(1); }
+    .hero-cta:focus-visible {
+      outline: 2px solid var(--forest);
+      outline-offset: 3px;
+    }
 
     /* ── SERVICES ── */
     #services {
@@ -312,7 +334,7 @@
       font-family: var(--font-heading);
       font-size: 2.5rem;
       font-weight: 500;
-      color: rgba(200,164,90,0.22);
+      color: rgba(200,164,90,0.35);
       line-height: 1;
       margin-bottom: 1rem;
     }
@@ -334,7 +356,7 @@
       font-family: var(--font-body);
       font-size: 0.95rem;
       font-weight: 400;
-      color: rgba(245,240,232,0.72);
+      color: rgba(245,240,232,0.85);
       line-height: 1.75;
     }
 
@@ -439,6 +461,10 @@
     }
     .submit-btn:hover { color: var(--ivory); }
     .submit-btn:hover::before { transform: scaleX(1); }
+    .submit-btn:focus-visible {
+      outline: 2px solid var(--forest);
+      outline-offset: 3px;
+    }
     .form-status {
       margin-top: 0.5rem;
       font-family: var(--font-body);
@@ -469,7 +495,7 @@
     .footer-meta {
       font-family: var(--font-body);
       font-size: 0.72rem;
-      color: rgba(245,240,232,0.55);
+      color: rgba(245,240,232,0.72);
       letter-spacing: 0.06em;
       text-align: right;
     }
@@ -477,7 +503,7 @@
       display: block;
       margin-top: 0.25rem;
       font-size: 0.65rem;
-      color: rgba(245,240,232,0.35);
+      color: rgba(245,240,232,0.55);
     }
 
     /* ── RESPONSIVE ── */
@@ -509,6 +535,8 @@
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- NAV -->
   <nav id="navbar">
     <a href="#hero" class="nav-logo">
@@ -529,7 +557,7 @@
     <a href="#book" class="menu-link">Book</a>
   </div>
 
-  <main>
+  <main id="main-content">
 
     <!-- HERO -->
     <section id="hero">
